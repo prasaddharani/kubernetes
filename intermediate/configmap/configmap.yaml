@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demo-config
+  labels:
+    app: configmap-demo
+data:
+  DEMO_ENV: "This is a demo config value from ConfigMap!"

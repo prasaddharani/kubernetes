@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-demo-pod
+spec:
+  initContainers:
+    - name: init-demo
+      image: busybox
+      command: ["sh", "-c", "echo Init container running; sleep 5"]
+  containers:
+    - name: app
+      image: nginx
+      ports:
+        - containerPort: 80
+      command: ["sh", "-c", "echo App container running; sleep 3600"]
+

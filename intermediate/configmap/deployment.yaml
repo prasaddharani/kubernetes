@@ -1,0 +1,26 @@
+# ConfigMap Demo Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configmap-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: configmap-demo
+  template:
+    metadata:
+      labels:
+        app: configmap-demo
+    spec:
+      containers:
+        - name: demo
+          image: busybox
+          command: ["sh", "-c", "env; sleep 3600"]
+          env:
+            - name: DEMO_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: demo-config
+                  key: DEMO_ENV
+
