@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemon-demo
+spec:
+  selector:
+    matchLabels:
+      app: daemon-demo
+  template:
+    metadata:
+      labels:
+        app: daemon-demo
+    spec:
+      containers:
+        - name: daemon
+          image: busybox
+          command: ["sh", "-c", "while true; do echo DaemonSet running; sleep 60; done"]
+

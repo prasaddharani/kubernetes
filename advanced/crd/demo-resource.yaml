@@ -1,0 +1,7 @@
+apiVersion: example.com/v1
+kind: DemoResource
+metadata:
+  name: my-demo-resource
+spec:
+  message: "Hello from your custom resource!"
+

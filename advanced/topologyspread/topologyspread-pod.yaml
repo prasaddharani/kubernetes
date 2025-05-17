@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: topologyspread-demo
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: topologyspread-demo
+  template:
+    metadata:
+      labels:
+        app: topologyspread-demo
+    spec:
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app: topologyspread-demo
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+
