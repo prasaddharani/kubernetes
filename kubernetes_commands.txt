@@ -1,3 +1,0 @@
-Kubernetes tutorial:
-https://chatgpt.com/c/6828105c-3db0-8010-9ea6-41b7a2272e7f
-
